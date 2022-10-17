@@ -1,10 +1,6 @@
 <?php
 session_start();
 
-// if(isset($_SESSION['connect'])){
-//     header('location: ../');
-// }
-
 require('src/connection.php');
 
 if(!empty($_POST['pseudo']) && !empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['confirmPassword'])){
@@ -87,7 +83,8 @@ if(!empty($_POST['pseudo']) && !empty($_POST['email']) && !empty($_POST['passwor
         <button type="submit" >Valider l'inscription</button>
         </form>
     <?php } else{ ?> 
-        <p> Bonjour <?= $_SESSION['pseudo'] ?></p>
+            <p> Bonjour <?php echo$_SESSION['pseudo']; ?></p>
+            <p><a href="disconnection.php">Deconnexion</p>
 
    <?php } ?>
 </body>

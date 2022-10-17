@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-//if(isset($_SESSION['connect'])){
-//    header('location: ./');
-//}
+// if(isset($_SESSION['connect'])){
+//      header('location: ../');
+// }
 
 require('src/connection.php');
 
@@ -24,18 +24,19 @@ if(!empty($_POST['email']) && !empty($_POST['password'])){
     $req->execute(array($email));
 
      while($user = $req->fetch()){
-        print_r($user);
         if($password == $user['password']){
-             echo"test";
-
-            header('location: login.php?sucess=1');
+            $error = 0;
+            $_SESSION['connect'] = 1;
+            $_SESSION['pseudo'] = $user['pseudo'];
+            
+            if(isset($_POST['connect'])){
+                setcookie('log', $user["secret"], time()+365*24*3600, '/', null, false, true);
+            }
+            header('location: login.php?success=1');
             exit();
         }
     }
-    if($error ==1){
-        $error = 0;
-        $_SESSION['connect'] = 1;
-        $_SESSION['pseudo'] = $user['pseudo'];
+    if($error ==1){        
         header('location: login.php?error=1');
         exit();
     }
