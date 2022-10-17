@@ -1,0 +1,43 @@
+html{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+input{
+    display:block;
+    border: 1px solid black;
+    padding: 10px;
+    margin: 10px;
+}
+
+a{
+    text-decoration: none;
+    color: orangered;
+}
+
+button{
+    margin: 5px;
+    display: block;
+}
+
+.error{
+    background-color: red;
+    color: white;
+    text-align: center;
+    padding : 10px;
+    margin: 5px;
+    display: inline-block;
+}
+
+#success{
+    background-color: green;
+    color: white;
+    text-align: center;
+    padding : 10px;
+    margin: 5px;
+    display: inline-block;
+}
+
+.connection{
+    display: inline-block;
+    margin: 5px
+}
